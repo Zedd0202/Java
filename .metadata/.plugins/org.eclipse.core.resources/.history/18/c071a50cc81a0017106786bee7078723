@@ -1,0 +1,23 @@
+/*
+ * Test class
+ * @version 1.0 6 April 2017
+ * @author  Songyi CHOI
+ */
+public class Test {
+	public static void main(String[] args) {
+		
+		CD cd1 = new CD("CD","Alive","Big Bang",2012,40000);
+		CD cd2 = new CD("CD","To Anyone","2NE1",2010,36858);
+		Movie movie1 = new Movie("Movie","Lord of the Ring 2",2002,24000);
+		Movie movie2 = new Movie("Movie","Jang ok-jung living by love",2013,26200);
+		
+		Cart cart = new Cart("Tamer");
+		cart.addItem(cd1);
+		cart.addItem(movie1);
+		cart.addItem(movie2);
+		cart.addItem(cd2);
+		cart.printReceipt();
+		
+		
+	}
+}

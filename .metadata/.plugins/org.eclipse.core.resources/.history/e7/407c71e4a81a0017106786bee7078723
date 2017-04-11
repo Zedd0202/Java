@@ -1,0 +1,19 @@
+
+public class Item implements ForSale {
+	public String itemID; 
+	public int importPrice;
+	public Item(String id, int price){
+		this.itemID = id;
+		this.importPrice =price;
+		
+	}
+	
+	
+
+	@Override
+	public int getSalePrice() {
+		return 0;
+	}
+	
+	
+}

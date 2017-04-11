@@ -1,0 +1,25 @@
+package week7;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class helloWorld {
+	public static void main(String[] args) {
+		
+		//set up the window
+		JFrame frame = new JFrame();
+		frame.setTitle("Java window");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//add a label
+		JLabel label = new JLabel("Hello world");
+		//frame.getContentPane().add(label);
+		//오리지날 패널 
+		frame.add(label);
+
+		
+		//show the window
+		frame.setSize(300, 100);
+		frame.setVisible(true);
+	}
+}

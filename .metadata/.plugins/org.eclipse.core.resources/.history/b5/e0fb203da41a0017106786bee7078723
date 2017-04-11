@@ -1,0 +1,19 @@
+
+public class Test {
+	public static void main(String[] args) {
+		
+		CD cd1 = new CD("1","Alive","Big Bang",2012,40000);
+		CD cd2 = new CD("4","To Anyone","2NE1",2010,36865);
+		Movie movie1 = new Movie("2","Lord of the Ring 2",2002,24000);
+		Movie movie2 = new Movie("3","jang ok-jung living by love",2013,26200);
+		
+		Cart cart = new Cart("Tamer");
+		cart.addItem(cd1);
+		cart.addItem(movie1);
+		cart.addItem(movie2);
+		cart.addItem(cd2);
+		cart.printReceipt();
+		
+		
+	}
+}
