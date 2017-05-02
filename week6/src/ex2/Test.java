@@ -27,7 +27,7 @@ public class Test {
 		System.out.print("==============");
 		
 		
-		//var6.method1();//컴파일에
+		((A) var6).method1();//컴파일에
 		System.out.println();
 		var1.method2();
 		System.out.println();

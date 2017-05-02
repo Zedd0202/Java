@@ -9,7 +9,6 @@ public class Rectangle {
 	public Point point;
 	
 	public Rectangle() {
-		super();
 		this.height = height;
 		this.width = width;
 		this.point = new Point(0,0);

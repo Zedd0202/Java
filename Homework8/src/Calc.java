@@ -1,0 +1,410 @@
+
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+public class Calc {
+
+	private JFrame frame;
+	private JTextField text;
+	private JPanel panel_1;
+	
+	public int cnt = 0;
+	//store numbers to calculate
+	public int temp[] = new int[2];
+	//store operator
+	public char cal;
+	//store result
+	public int result;
+	
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Calc window = new Calc();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Calc() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.NORTH);
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		text = new JTextField();
+		text.setHorizontalAlignment(SwingConstants.TRAILING);
+		panel.add(text);
+		text.setColumns(10);
+		
+		panel_1 = new JPanel();
+		frame.getContentPane().add(panel_1, BorderLayout.CENTER);
+		
+		//press 1
+		JButton btn1 = new JButton("1");
+		btn1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyCode());
+				temp[cnt] = Integer.parseInt(k);
+				cnt++;
+			}
+		});
+		btn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btn1.getText();
+				text.setText(text.getText()+val);
+				temp[cnt] = 1;
+				cnt++;
+			}
+		});
+		
+		//press 0
+		JButton btn0 = new JButton("0");
+		btn0.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyCode());
+				temp[cnt] = Integer.parseInt(k);
+				cnt++;
+			}
+		});
+		btn0.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btn0.getText();
+				text.setText(text.getText()+val);
+				temp[cnt] = 0;
+				cnt++;
+			}
+		});
+		
+		//press 2
+		JButton btn2 = new JButton("2");
+		btn2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyCode());
+				temp[cnt] = Integer.parseInt(k);
+				cnt++;
+			}
+		});
+		btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btn2.getText();
+				text.setText(text.getText()+val);
+				temp[cnt] = 2;
+				cnt++;
+			}
+		});
+		
+		//press c -> reset
+		JButton btnC = new JButton("C");
+		btnC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				text.setText("");
+				cnt = 0;
+			}
+		});
+		
+		//press 7
+		JButton btn7 = new JButton("7");
+		btn7.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyCode());
+				temp[cnt] = Integer.parseInt(k);
+				cnt++;
+			}
+		});
+		btn7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btn7.getText();
+				text.setText(text.getText()+val);
+				temp[cnt] = 7;
+				cnt++;
+			}
+		});
+		
+		//press 8
+		JButton btn8 = new JButton("8");
+		btn8.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyCode());
+				temp[cnt] = Integer.parseInt(k);
+				cnt++;
+			}
+		});
+		btn8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btn8.getText();
+				text.setText(text.getText()+val);
+				temp[cnt] = 8;
+				cnt++;
+			}
+		});
+		
+		//press 9
+		JButton btn9 = new JButton("9");
+		btn9.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyCode());
+				temp[cnt] = Integer.parseInt(k);
+				cnt++;
+			}
+		});
+		btn9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btn9.getText();
+				text.setText(text.getText()+val);
+				temp[cnt] = 9;
+				cnt++;
+			}
+		});
+		
+		//press +
+		JButton btnAdd = new JButton("+");
+		btnAdd.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyChar());
+				cal = k.charAt(0);
+			}
+		});
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btnAdd.getText();
+				text.setText(text.getText()+val);
+				cal = '+';
+			}
+		});
+		
+		JLabel label = new JLabel("");
+		
+		JLabel label_1 = new JLabel("");
+		
+		//press 4
+		JButton btn4 = new JButton("4");
+		btn4.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyCode());
+				temp[cnt] = Integer.parseInt(k);
+				cnt++;
+			}
+		});
+		btn4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btn4.getText();
+				text.setText(text.getText()+val);
+				temp[cnt] = 4;
+				cnt++;
+			}
+		});
+		
+		//press 5
+		JButton btn5 = new JButton("5");
+		btn5.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyCode());
+				temp[cnt] = Integer.parseInt(k);
+				cnt++;
+			}
+		});
+		btn5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btn5.getText();
+				text.setText(text.getText()+val);
+				temp[cnt] = 5;
+				cnt++;
+			}
+		});
+		
+		//press 6
+		JButton btn6 = new JButton("6");
+		btn6.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyCode());
+				temp[cnt] = Integer.parseInt(k);
+				cnt++;
+			}
+		});
+		btn6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btn6.getText();
+				text.setText(text.getText()+val);
+				temp[cnt] = 6;
+				cnt++;
+			}
+		});
+		
+		//press -
+		JButton btnSub = new JButton("-");
+		btnSub.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyChar());
+				cal = k.charAt(0);
+			}
+		});
+		btnSub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btnSub.getText();
+				text.setText(text.getText()+val);
+				cal = '-';
+			}
+		});
+		
+		JLabel label_2 = new JLabel("");
+		
+		JLabel label_3 = new JLabel("");
+		
+		//press 3
+		JButton btn3 = new JButton("3");
+		btn3.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyCode());
+				temp[cnt] = Integer.parseInt(k);
+				cnt++;
+			}
+		});
+		btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btn3.getText();
+				text.setText(text.getText()+val);
+				temp[cnt] = 3;
+				cnt++;
+			}
+		});
+		
+		//press *
+		JButton btnMul = new JButton("*");
+		btnMul.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyChar());
+				cal = k.charAt(0);
+			}
+		});
+		btnMul.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btnMul.getText();
+				text.setText(text.getText()+val);
+				cal = '*';
+			}
+		});
+		
+		JLabel label_4 = new JLabel("");
+		
+		JLabel label_5 = new JLabel("");
+		
+		//press = -> get result of operation
+		JButton btnEqual = new JButton("=");
+		btnEqual.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//check operator and do operation
+				if(cal == '+'){
+					result = temp[0] + temp[1];
+				}
+				else if(cal == '-'){
+					result = temp[0] - temp[1];
+				}
+				else if(cal == '*'){
+					result = temp[0] * temp[1];
+				}
+				else if(cal == '/'){
+					result = temp[0] / temp[1];
+				}
+				String reStr = String.valueOf(result);
+				text.setText(reStr);
+			}
+		});
+		
+		//press /
+		JButton btnDiv = new JButton("/");
+		btnDiv.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String k = KeyEvent.getKeyText(e.getKeyChar());
+				cal = k.charAt(0);
+			}
+		});
+		btnDiv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String val = btnDiv.getText();
+				text.setText(text.getText()+val);
+				cal = '/';
+			}
+		});
+		
+		JLabel label_6 = new JLabel("");
+		
+		JLabel label_7 = new JLabel("");
+		panel_1.setLayout(new GridLayout(0, 6, 0, 0));
+		panel_1.add(btn7);
+		panel_1.add(btn8);
+		panel_1.add(btn9);
+		panel_1.add(btnAdd);
+		panel_1.add(label);
+		panel_1.add(label_1);
+		panel_1.add(btn4);
+		panel_1.add(btn5);
+		panel_1.add(btn6);
+		panel_1.add(btnSub);
+		panel_1.add(label_2);
+		panel_1.add(label_3);
+		panel_1.add(btn1);
+		panel_1.add(btn2);
+		panel_1.add(btn3);
+		panel_1.add(btnMul);
+		panel_1.add(label_4);
+		panel_1.add(label_5);
+		panel_1.add(btn0);
+		panel_1.add(btnC);
+		panel_1.add(btnEqual);
+		panel_1.add(btnDiv);
+		panel_1.add(label_6);
+		panel_1.add(label_7);
+	}
+}

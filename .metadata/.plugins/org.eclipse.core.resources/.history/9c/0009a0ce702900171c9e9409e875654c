@@ -1,0 +1,79 @@
+package week9;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import java.awt.GridLayout;
+import java.awt.GridBagLayout;
+import javax.swing.JButton;
+
+public class Calculator extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JPanel panel;
+	private JPanel panel_1;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
+	private JButton btnNewButton_2;
+	private JButton btnNewButton_3;
+	private JButton btnNewButton_4;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Calculator frame = new Calculator();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Calculator() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		textField = new JTextField();
+		contentPane.add(textField, BorderLayout.NORTH);
+		textField.setColumns(10);
+		
+		panel_1 = new JPanel();
+		contentPane.add(panel_1, BorderLayout.CENTER);
+		panel_1.setLayout(new GridLayout(4, 5, 0, 0));
+		
+		btnNewButton = new JButton("New button");
+		panel_1.add(btnNewButton);
+		
+		btnNewButton_1 = new JButton("New button");
+		panel_1.add(btnNewButton_1);
+		
+		btnNewButton_2 = new JButton("New button");
+		panel_1.add(btnNewButton_2);
+		
+		btnNewButton_3 = new JButton("New button");
+		panel_1.add(btnNewButton_3);
+		
+		btnNewButton_4 = new JButton("New button");
+		panel_1.add(btnNewButton_4);
+		
+		
+	}
+
+}

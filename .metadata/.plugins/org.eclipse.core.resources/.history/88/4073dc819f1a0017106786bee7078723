@@ -1,7 +1,0 @@
-
-public interface ForSale {
-	abstract int getSalePrice();
-	Item item[] = new Item[4];
-	
-	
-}

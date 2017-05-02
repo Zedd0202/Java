@@ -1,0 +1,11 @@
+import javax.swing.JFrame;
+
+public class Cal {
+    public static void main(String[] args) {
+        MiniCalculator window = new MiniCalculator("Basic Calculator");
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setSize(300, 400);
+        window.setFocusable(true);
+        window.setVisible(true);
+    }
+}

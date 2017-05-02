@@ -1,5 +1,6 @@
 package lectureSource;
 public interface Payable 
 {    
- double getPaymentAmount();     
+   
+  double getPaymentAmount();     
 }  
