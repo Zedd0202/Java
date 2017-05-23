@@ -1,0 +1,130 @@
+package week13;
+
+import java.awt.BorderLayout;
+//다이얼로그는 x밖에 없고, 제이프레임은 최소/최대화 닫기 세개있음. 
+import java.awt.EventQueue;
+import java.util.List;
+import java.util.Vector;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.ListModel;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class PhoneBook extends JFrame {
+
+	private JPanel contentPane;
+	private JMenuBar menuBar;
+	private JMenu mnAction;
+	private JMenuItem mntmAdd;
+	private JMenuItem mntmDelete;
+	private JMenuItem mntmExit;
+	private JMenu mnCollections;
+	private JMenuItem mntmSort;
+	private JMenuItem mntmShuffle;
+	private JMenuItem mntmDuplicate;
+	private JMenuItem mntmDeleteDuplicate;
+	private JScrollPane scrollPane;
+	private JList list;
+	private JLabel lblStatus;
+	private List<String> strList;
+	private DefaultListModel<String> listModel;
+	private JFrame frame = this;//copy my frame to the dialog
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PhoneBook c = new PhoneBook();
+					c.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public PhoneBook() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		
+		menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		mnAction = new JMenu("Action");
+		menuBar.add(mnAction);
+		
+		mntmAdd = new JMenuItem("Add");
+		mntmAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			 String str = (String)JOptionPane.showInputDialog(null,"Message: please insert contact ","title : input dialog",JOptionPane.PLAIN_MESSAGE);
+//			 if(str != null)
+			}
+		});
+		mnAction.add(mntmAdd);
+		
+		mntmDelete = new JMenuItem("Delete");
+		mnAction.add(mntmDelete);
+		
+		mntmExit = new JMenuItem("Exit");
+		mnAction.add(mntmExit);
+		
+		mnCollections = new JMenu("Collections");
+		menuBar.add(mnCollections);
+		
+		mntmSort = new JMenuItem("Sort");
+		mnCollections.add(mntmSort);
+		
+		mntmShuffle = new JMenuItem("Shuffle");
+		mnCollections.add(mntmShuffle);
+		
+		mntmDuplicate = new JMenuItem("Duplicate");
+		mnCollections.add(mntmDuplicate);
+		
+		mntmDeleteDuplicate = new JMenuItem("Delete Duplicate");
+		mnCollections.add(mntmDeleteDuplicate);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		listModel = new DefaultListModel<String>();
+
+		list =  new JList(listModel);
+		scrollPane = new JScrollPane(list);
+		contentPane.add(scrollPane, BorderLayout.CENTER);
+		
+		lblStatus = new JLabel("Total");
+		contentPane.add(lblStatus, BorderLayout.SOUTH);
+		InitData();
+
+	}
+	public void InitData()
+	{
+		strList = new Vector<String>();
+		for(int i=0;i<PhoneData.names.length ;i++)
+		{
+			strList.add(PhoneData.names[i]+ ": "+PhoneData.phones[i]);
+		}
+		
+		for(int i=0;i< strList.size();i++)
+		{
+			listModel.addElement(strList.get(i));
+		}
+	}
+
+}

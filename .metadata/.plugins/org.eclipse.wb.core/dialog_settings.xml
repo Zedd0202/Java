@@ -6,4 +6,6 @@
 		<item value="208" key="y"/>
 		<item value="310" key="height"/>
 	</section>
+	<section name="org.eclipse.wb.internal.core.editor.palette.dialogs.CategoryAddDialog">
+	</section>
 </section>
